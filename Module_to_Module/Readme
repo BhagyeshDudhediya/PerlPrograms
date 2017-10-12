@@ -1,0 +1,8 @@
+  There are 2 modules: Module_1 containing subroutines is_odd() and is_prime() out of which is_odd() is to be exported.
+  Module_1 needs to export it using @EXPORT array:
+      use Exporter qw(import);
+      our @EXPORT (is_odd);
+      
+  MainModule uses the functions exported by Module_1 using:
+      use Module_1;
+      use Module_1 qw(is_odd);
