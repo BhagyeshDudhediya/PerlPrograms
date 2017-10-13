@@ -6,3 +6,19 @@
   MainModule uses the functions exported by Module_1 using:
       use Module_1;
       use Module_1 qw(is_odd);
+
+I had to implement the import function that will be called by the use statement, but because this is such a common thing to do,
+there is already a module that provides this function. Perl comes with a module called Exporter that provides this import function.
+So we only had to import the import function by writing:
+      'use Exporter qw(import);'
+and by that the Module_1 module now has an import method.
+
+The way that method behaves is that it looks at the array @EXPORT and imports the functions listed in that array.
+
+Please note, the @EXPORT array was declared using the our keyword.
+
+So in our case, when the user typed in "use Module_1"; all the functions listed in @EXPORT, specifically is_odd will be imported into
+the main script.
+
+As you can see the Module_1 module also has a function called is_prime, but it is not listed in the @EXPORT array and thus it won't be
+imported into the namespace of the script.
