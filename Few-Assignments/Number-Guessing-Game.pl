@@ -1,5 +1,13 @@
 #!/usr/bin/perl
 
+=begin
+A game for user to try his luck and guess the randomly generated numeric number by the program.
+This covers few numeric functions such as:
+1. looks_like_number($num) - To check if given number, $num, is a numeric value.
+2. rand($num) - Generate a random number in the range 0 to $num, including 0 and excluding $num
+3. int $number - Get the integer equivalent of the given number.
+=cut
+
 use strict;
 use warnings;
 
