@@ -1,4 +1,14 @@
 #!/usr/bin/perl
+
+=begin
+ An example to cover all basics in a single program
+
+ Get Student data from user <STDIN> like name, roll no & marks then print the below data in file.
+ 1. Student with highest marks
+ 2. Display student name and marks for specific roll no
+ 3. Display all student information in the ascending order of their roll no’s.
+=cut
+
 use strict;
 use warnings;
 
@@ -31,15 +41,16 @@ print MY_FILE "Max marks obtained by:\nNAME: ", $sort_marks[$#sort_marks]->{name
 printf "Enter roll number to view:";
 my $roll_number = <STDIN>;
 my $i;
-for ($i = 0; $i < $#student_records; $i++) {
+
+for ($i = 0; $i < scalar @student_records; $i++) {
 	if ($student_records[$i]->{roll_no} == $roll_number) {
 		print MY_FILE "\nDETAILS FOR ROLL_NO. $roll_number NAME: ", $student_records[$i]->{name}, "MARKS: ", $student_records[$i]->{marks};
 		last;
 	}
 }
 
-if ($i == $#student_records-1) {
-	print "No record exists...";
+if ($i == scalar @student_records) {
+	warn "No record exists...";
 }
 
 # Sort the students array with roll number.
