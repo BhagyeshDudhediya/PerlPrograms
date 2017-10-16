@@ -10,7 +10,7 @@ print "Array context for read:\n@lines\n";
 
 seek(DATA, 0, 0);
 # Copy from one file to other for read+write
-open(DST, "+<copied-file") or die "Couldn't open file to write..";
+open(DST, "+>copied-file") or die "Couldn't open file to write..";
 while(<DATA>) {
 	print DST $_;
 }
